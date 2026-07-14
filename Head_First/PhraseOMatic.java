@@ -2,7 +2,7 @@ public class PhraseOMatic {
     public static void main (String[] args) {
 
         // make three sets of words to choose from
-        String wordListOne = {"agnostic", "opinionated", "voice activated", "haptically driven", 
+        String[] wordListOne = {"agnostic", "opinionated", "voice activated", "haptically driven", 
         "extensible", "reactive", "agent based", "functional", "AI enabled", "strongly typed"}; 
         String[] wordListTwo = {"loosely coupled", "six sigma", "asynchronous", "event driven", "pub-sub", 
         "IoT", "cloud native", "service oriented", "containerized", "serverless",
