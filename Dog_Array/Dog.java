@@ -30,7 +30,7 @@ class Dog {
         }
     }
 
-    public static void bark() {
+    public void bark() {
         System.out.println( name + " says Ruff!");
     }
 
