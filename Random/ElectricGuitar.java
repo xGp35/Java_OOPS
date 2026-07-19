@@ -6,4 +6,7 @@ class ElectricGuitar {
     String getbrand() {
         return brand;
     }
+    void setBrand(String aBrand) {
+        brand = aBrand;
+    }
 }
