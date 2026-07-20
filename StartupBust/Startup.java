@@ -1,10 +1,19 @@
 import java.util.ArrayList;
 
-class Startup {
+public class Startup {
+    private String name;
     private ArrayList<String> locationCells;
+
+    public Startup (String name){
+        this.name = name;
+    }
 
     public void setLocationCells(ArrayList<String> locs) {
         locationCells = locs;
+    }
+
+    public void setName(String n) {
+        name = n;
     }
 
     public String checkYourself(String userInput) {
