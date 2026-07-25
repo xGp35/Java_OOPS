@@ -3,6 +3,22 @@ class SongV4 implements Comparable<SongV4> {
     private String artist;
     private int bpm;
 
+    @Override
+    public boolean equals(Object aSong) {
+        SongV4 other = (SongV4) aSong;
+        return title.equals(other.getTitle());
+    }
+
+    @Override
+    public int hashCode() {
+        return title.hashCode(); 
+        // What?? Why title.hashCode and not the implementation ?
+        // Because Kathy and Bert want me to learn.
+        // But seriously, String class already has an overridden hashCode() method, so we leverage it
+        // instead of creating our won implementation of hashCode() for SongV4 from scratch
+    }
+
+    @Override
     public int compareTo(SongV4 s) { // this is the method in Comparable interface that I need to implement
         return title.compareTo(s.getTitle());
     }
