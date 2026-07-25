@@ -6,13 +6,13 @@ public class Jukebox5 {
     }
 
     public void go() {
-        List<SongV4> songList = MockSongs.getSongsV4();
+        List<SongV31> songList = MockSongs.getSongsV4();
         System.out.println(songList);
 
         Collections.sort(songList);
         System.out.println(songList);
 
-        SongV4 artistCompare = new SongV4();
+        SongV31 artistCompare = new SongV31();
         songList.sort(artistCompare);
         System.out.println(songList);
         //Collections.sort(songList, artistCompare);

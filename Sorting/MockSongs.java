@@ -41,15 +41,15 @@ class MockSongs {
         return songs;
     }
 
-    public static List<SongV4> getSongsV4() {
-        List<SongV4> songs = new ArrayList<>();
+    public static List<SongV31> getSongsV4() {
+        List<SongV31> songs = new ArrayList<>();
 
-        songs.add(new SongV4("lock_the_fuck_in", "Greg Pitt", 147));
-        songs.add(new SongV4("what_youd_do_if_you_arent_afraid", "David Goggins", 158));
-        songs.add(new SongV4("nothing_is_worthwile_if_you_dont_take_risks", "Denzel", 140));
-        songs.add(new SongV4("raw_action_solves_everything", "Andrew Tate", 183));
-        songs.add(new SongV4("comfort_is_the_enemy", "Mushashi", 158));
-        songs.add(new SongV4("work_Works", "Top G", 143));
+        songs.add(new SongV31("lock_the_fuck_in", "Greg Pitt", 147));
+        songs.add(new SongV31("what_youd_do_if_you_arent_afraid", "David Goggins", 158));
+        songs.add(new SongV31("nothing_is_worthwile_if_you_dont_take_risks", "Denzel", 140));
+        songs.add(new SongV31("raw_action_solves_everything", "Andrew Tate", 183));
+        songs.add(new SongV31("comfort_is_the_enemy", "Mushashi", 158));
+        songs.add(new SongV31("work_Works", "Top G", 143));
 
         return songs;
     }
