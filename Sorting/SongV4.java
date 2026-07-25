@@ -1,13 +1,13 @@
-class SongV3 implements Comparable<SongV3> {
+class SongV4 implements Comparable<SongV4> {
     private String title;
     private String artist;
     private int bpm;
 
-    public int compareTo(SongV3 s) { // this is the method in Comparable interface that I need to implement
+    public int compareTo(SongV4 s) { // this is the method in Comparable interface that I need to implement
         return title.compareTo(s.getTitle());
     }
 
-    SongV3(String title, String artist, int bpm) {
+    SongV4(String title, String artist, int bpm) {
         this.title = title;
         this.artist = artist;
         this.bpm = bpm;
