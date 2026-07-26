@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class Jukebox9 {
+public class Jukebox10 {
     public static void main(String[] args) {
-        new Jukebox9().go();
+        new Jukebox10().go();
     }
 
     public void go() {
@@ -13,8 +13,15 @@ public class Jukebox9 {
         songList.sort((one, two) -> one.getTitle().compareTo(two.getTitle()));
         System.out.println(songList);
 
-        Set<SongV4> songSet = new HashSet<>(songList);
+        Set<SongV4> songSet = new TreeSet<>(songList);
         System.out.println(songSet);
-        // This songSet won't be sorted, if you see sorted, it's by chance
+        // This songSet is sorted
+
+        // Sorted by BPM
+        Set<SongV4> newSongSet = new TreeSet<>((o1,o2)-> o1.getBpm() - o2.getBpm());
+        newSongSet.addAll(songList);
+        System.out.println(newSongSet);
+        // This songSet is sorted
+
     }
 }
