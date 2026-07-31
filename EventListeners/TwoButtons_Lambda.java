@@ -21,7 +21,7 @@ public class TwoButtons {
         // we pass appropriate Inner Class object
 
         JButton colorButton = new JButton("Change circle");
-        colorButton.addActionListener(new ColorListener());
+        colorButton.addActionListener(event -> frame.repaint());
         // Same here
 
         label = new JLabel("I'm a label");
