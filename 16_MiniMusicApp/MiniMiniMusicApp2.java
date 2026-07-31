@@ -1,10 +1,11 @@
 import javax.sound.midi.*;
 import static javax.sound.midi.ShortMessage.*;
 
-public class MiniMiniMusicApp {
+// This has meta event listener that will close the java program once the sound ends
+public class MiniMiniMusicApp2 {
     public static void main(String[] args) {
 
-        MiniMiniMusicApp mini = new MiniMiniMusicApp();
+        MiniMiniMusicApp2 mini = new MiniMiniMusicApp2();
         mini.play();
     }
 
@@ -43,6 +44,13 @@ public class MiniMiniMusicApp {
 
             // Give the Sequence to the Sequencer
             player.setSequence(seq);
+
+            player.addMetaEventListener(meta -> {
+                if (meta.getType() == 47) {   // 47 = End of Track
+                    player.stop();
+                    player.close();
+                }
+            });
 
             player.start();
 
