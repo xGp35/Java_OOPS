@@ -109,8 +109,7 @@ public class QuizCardBuilder {
     }
 
     private void saveFile(File file) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             for (QuizCard card: cardList) {
                 writer.write(card.getQuestion() + "/");
                 writer.write(card.getAnswer() + "\n");
