@@ -114,7 +114,6 @@ public class QuizCardBuilder {
                 writer.write(card.getQuestion() + "/");
                 writer.write(card.getAnswer() + "\n");
             }
-            writer.close();
         } catch (IOException e) {
             System.out.println("Couldn't write the cardList out: "+ e.getMessage());
         }
