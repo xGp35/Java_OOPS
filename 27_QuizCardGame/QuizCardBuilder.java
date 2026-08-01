@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class QuizCardBuilder {
     private ArrayList<QuizCard> cardList = new ArrayList<>();
-    private JTextArea answer;
+    private JTextArea question;
     private JTextArea answer;
     private JFrame frame;
 
@@ -14,7 +14,7 @@ public class QuizCardBuilder {
     }
 
     public void go() {
-        frame = new JFrame("Quiz Card Builder")
+        frame = new JFrame("Quiz Card Builder");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel mainPanel = new JPanel();
@@ -71,15 +71,27 @@ public class QuizCardBuilder {
         return textArea;
     }
 
+    private boolean addCurrentCard() {
+        String q = question.getText().trim();
+        String a = answer.getText().trim();
+
+        if (q.isEmpty() && a.isEmpty()) {
+            return false;
+        }
+
+        cardList.add(new QuizCard(q, a));
+        return true;
+    }
+
     private void nextCard() {
-        QuizCard card = new QuizCard(question.getText(), answer.getText());
-        cardList.add(card);
-        clearCard();
+        if (addCurrentCard()) {
+            clearCard();
+        }
     }
 
     private void saveCard() {
-        QuizCard card = new QuizCard(question.getText(), answer.getText());
-        cardList.add(card);
+        addCurrentCard();
+
         JFileChooser fileSave = new JFileChooser();
         fileSave.showSaveDialog(frame);
         saveFile(fileSave.getSelectedFile());
@@ -105,7 +117,7 @@ public class QuizCardBuilder {
             }
             writer.close();
         } catch (IOException e) {
-            System.out.println("Couldn't write the cardList out: ", e.getMessage());
+            System.out.println("Couldn't write the cardList out: "+ e.getMessage());
         }
     }
 }
