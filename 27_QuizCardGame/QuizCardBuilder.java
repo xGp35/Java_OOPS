@@ -55,6 +55,8 @@ public class QuizCardBuilder {
 
     private JScrollPane createScroller(JTextArea textArea) {
         JScrollPane scroller = new JScrollPane(textArea);
+        // Always show vertical scrollbar so text doesn't get cut off at the bottom.
+        // Never show horizontal scrollbar; text wraps instead for a cleaner layout.
         scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         return scroller;
@@ -71,6 +73,8 @@ public class QuizCardBuilder {
         return textArea;
     }
 
+    // Returns false if both Q&A are empty, preventing trash entries in our quiz deck.
+    // This also keeps garbage "/" delimiters out of the saved file.
     private boolean addCurrentCard() {
         String q = question.getText().trim();
         String a = answer.getText().trim();
@@ -83,6 +87,8 @@ public class QuizCardBuilder {
         return true;
     }
 
+    // Only clear the input fields if a card was successfully added.
+// This prevents accidentally clearing fields when the user clicks Next with empty Q&A.
     private void nextCard() {
         if (addCurrentCard()) {
             clearCard();
@@ -90,6 +96,8 @@ public class QuizCardBuilder {
     }
 
     private void saveCard() {
+        // Add the current card BEFORE opening the file chooser so this card
+        // is included in the save along with all previously entered cards.
         addCurrentCard();
 
         JFileChooser fileSave = new JFileChooser();
@@ -109,6 +117,9 @@ public class QuizCardBuilder {
     }
 
     private void saveFile(File file) {
+        // Format: Each line is "question/answer\n"
+        // The "/" delimiter separates the two fields for later parsing.
+        // try-with-resources ensures the file is closed even if an error occurs.
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             for (QuizCard card: cardList) {
                 writer.write(card.getQuestion() + "/");
